@@ -1,0 +1,37 @@
+<form [formGroup]="form">
+    <!-- <pre>
+        <code>{{form.value | json}}</code>
+    </pre> -->
+    <p>Agreagar usuario</p>
+    <div class="mb-3">
+        <label for="name" class="form-label">
+            Nombre
+        </label>
+        <input id="name" type="text" class="form-control" formControlName="nombre" placeholder="Nombre del usuario">
+        <label for="apellidos" class="form-label mt-2">
+            Apellido/os
+        </label>
+        <input id="contacto" type="text" class="form-control" formControlName="apellidos" placeholder="Apelldios del usuario">
+        <button (click)="addContactfield()" class="btn btn-primary mt-5">Agregar Contacto</button>
+    </div>
+
+    <div class="contact" formArrayName="contactos" *ngFor="let contacto of contactos; let i = index">
+        <form class="mt-3 d-flex flex-column" [formGroupName]="i">
+            <label for="tipo" class="form-label">
+                Tipo de método de contacto
+            </label>
+            <select formControlName="tipo" name="tipo" id="tipo">
+                <option value="ZIP" selected>ZIP</option>
+                <option value="Correo Electrónico">Correo electrónico</option>
+                <option value="Número de teléfono">Número de teléfono</option>
+            </select>
+            
+            <label for="contacto" class="form-label mt-2">
+                Contacto
+            </label>
+            <input id="contacto" type="text" class="form-control" formControlName="contacto" placeholder="Introduzca el contacto aquí">
+        </form>
+    </div>
+</form>
+
+<button (click)="submited()" class="btn btn-primary mt-5">Guardar</button>

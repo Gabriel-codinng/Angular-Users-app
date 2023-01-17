@@ -1,0 +1,41 @@
+<button class="btn btn-primary" (click)="userAdd()">Agregar usuario</button>
+<input [formControl]="searcher" type="text" class="form-control mt-2">
+<div class="usuarios" *ngIf="users$ | async as users">
+    <table class="table mt-2">
+        <thead>
+            <th scope="col">
+                #
+            </th>
+            <th scope="col">
+                Nombre
+            </th>
+            <th scope="col">
+                Apellido/os
+            </th>
+            <th scope="col">
+                Contacto
+            </th>
+            <th scope="col">
+                Acciones
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users, let i = index">
+                <th scope="row">{{i}}</th>
+                <td>{{user.nombre}}</td>
+                <td>{{user.apellidos}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let contacto of user.contactos">
+                            <strong>{{contacto.tipo}}:</strong> - {{contacto.contacto}}
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button class="btn btn-warning" (click)="editUser(user)">Editar</button>
+                    <button class="btn btn-danger ms-2" (click)="deleteUser(user)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

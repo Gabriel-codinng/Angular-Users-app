@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bustracker": {
+    "crud-users": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -15,9 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "outputPath": "dist/bustracker",
+            "customWebpackConfig": {
+              "path": "src/custom-webpack.config.ts"
+            },
+            "outputPath": "dist/crud-users",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -62,13 +65,13 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular-builders/custom-webpack:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bustracker:build:production"
+              "browserTarget": "crud-users:build:production"
             },
             "development": {
-              "browserTarget": "bustracker:build:development"
+              "browserTarget": "crud-users:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bustracker:build"
+            "browserTarget": "crud-users:build"
           }
         },
         "test": {
@@ -100,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -1,4 +1,4 @@
-# Bustracker
+# Crud-Users Firebase + Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## AngularFire
+
+La librería oficial de Angular para Firebase.
+
+Pero ante [logeate en la terminal a firebase](https://stackoverflow.com/questions/71127971/firebase-auth-asking-for-authorization-code-during-installation)
+
+```bash
+ng add @angular/fire
+```
+
+## src/app/commons
+
+**Commons** albergará todos aquellos elementos que necesitamos compartir entre los componentes para su reutilización: interfaces, models, components genéricos.
+
+## src/app/pages
+
+**pages** almacenaremos cada una de las páginas de la aplicación.
